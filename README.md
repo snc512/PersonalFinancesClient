@@ -1,17 +1,70 @@
-This is is a user-friendly and intuitive React-based web application designed to help you manage your finances effectively. Whether you're tracking your expenses, monitoring your income, or categorizing your financial activities, we will provides you with the tools you need to take control of your financial journey.
+# Getting Started with Create React App
 
-Key Features:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Expense Tracking: Easily record your daily expenses and categorize them for better insights into your spending habits. PersonalFinances lets you stay on top of where your money is going.
+## Available Scripts
 
-Income Management: Keep track of your various sources of income and monitor your financial growth over time. Stay informed about your earnings and make informed decisions.
+In the project directory, you can run:
 
-Category Management: Categorize your expenses for better organization and understanding. PersonalFinances helps you visualize where your money is being spent and identify areas where you can save.
+### `npm start`
 
-User-Friendly Interface: Our intuitive user interface ensures a seamless experience, making it easy to enter financial transactions, view summaries, and access insights.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Customizable Reports: Generate detailed reports and summaries of your financial activities. Get a comprehensive overview of your financial health and make informed decisions based on real data.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-Secure and Private: Your financial data is important, and we prioritize your security. PersonalFinances uses encryption and modern security practices to keep your information safe.
+### `npm test`
 
-Add Expenses on the Go: With our mobile-responsive design, you can add expenses and manage your finances from any device, wherever you are.
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
