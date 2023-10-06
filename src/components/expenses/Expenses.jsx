@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api from "../../api/axiosConfig";
-import AddExpenseModal from './AddExpenseModal'; // Make sure to provide the correct path
+import AddExpenseModal from './AddExpenseModal';
 
 
 class Expenses extends Component {
@@ -60,7 +60,8 @@ class Expenses extends Component {
               <th>Reference Number</th>
               <th>Description</th>
               <th>Category</th>
-              <th>Amount</th>
+              <th>Credits</th>
+              <th>Charges</th>
             </tr>
           </thead>
           <tbody className='text-white  md:text-xl sm:text-sm text-sm pl-2'>
@@ -70,7 +71,8 @@ class Expenses extends Component {
                 <td className= 'border border-gray-600'>{new Date(expense.transDate).toLocaleDateString()}</td>
                 <td className= 'border border-gray-600'>{expense.referenceNumber}</td>
                 <td className= 'border border-gray-600'>{expense.description}</td>
-                <td className= 'border border-gray-600'>{expense.category.toString()}</td>
+                <td className= 'border border-gray-600'>{expense?.category?.name ?? 'No Category'}</td>
+                <td className= 'border border-gray-600'>{expense.credits}</td>
                 <td className= 'border border-gray-600'>{expense.charges}</td>
               </tr>
             ))}
