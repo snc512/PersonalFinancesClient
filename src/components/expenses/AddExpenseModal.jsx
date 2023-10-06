@@ -4,8 +4,11 @@ import api from "../../api/axiosConfig";
 const AddExpenseModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     cardLast4: "",
-    transDate: "",
+    transDate: "10-05-2023",
+    postDate: "2023-10-05",
     referenceNumber: "ABCD1234",
+    description: "asdf",
+    credits: 200.00
     // Add more fields as needed
   });
 
@@ -20,6 +23,7 @@ const AddExpenseModal = ({ isOpen, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log(formData);
       const response = await api.post('/api/v1/expenses', formData); 
     } catch (error) {
       console.error("Error creating expense:", error);
