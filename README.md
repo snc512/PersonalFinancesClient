@@ -18,3 +18,4 @@ Add Expenses on the Go: With our mobile-responsive design, you can add expenses 
 
 https://github.com/snc512/PersonalFinancesClient/assets/23483902/818daa54-b694-4e49-9263-bf11936863d5
 
+<img width="1715" alt="Screenshot 2023-10-06 at 8 37 36 AM" src="https://github.com/snc512/PersonalFinancesClient/assets/23483902/e62e5e2e-3e40-4fea-90bb-dba28fa33c3d">
