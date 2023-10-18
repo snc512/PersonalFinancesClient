@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from "../../api/axiosConfig";
+import 'font-awesome/css/font-awesome.min.css';
 import AddExpenseModal from './AddExpenseModal';
 
 
@@ -9,8 +10,30 @@ class Expenses extends Component {
     this.state = {
       isAddExpenseModalOpen: false,
       expenses: [],
+      sortBy: 'transDate',
+      sortDirection: 'ASC'
     };
   }
+
+  handleSort = async (column) => {
+    const { sortBy, sortDirection } = this.state;
+  
+    const newSortDirection = sortBy === column ? (sortDirection === 'ASC' ? 'DESC' : 'ASC') : 'ASC';
+  
+    this.setState({ sortBy: column, sortDirection: newSortDirection });
+    try {
+      const response = await api.get('/api/v1/expenses', {
+        params: {
+          sortBy: column,
+          sortDirection: newSortDirection,
+        }
+      });
+  
+      this.setState({ expenses: response.data });
+    } catch (error) {
+      console.error('Error fetching sorted expenses:', error);
+    }
+  };
 
   toggleAddExpenseModal = () => {
     this.setState((prevState) => ({
@@ -20,7 +43,12 @@ class Expenses extends Component {
 
   async componentDidMount() {
     try {
-      const response = await api.get('/api/v1/expenses');
+      const response = await api.get('/api/v1/expenses', {
+        params: {
+          sortBy: 'transDate',
+          sortDirection: 'ASC',
+        }
+      });
       console.log(response.data[0].category);
       response.data.map((expense) => (
         console.log(expense.transDate)
@@ -29,6 +57,18 @@ class Expenses extends Component {
     } catch (error) {
       console.error('Error fetching expenses:', error);
     }
+  }
+
+  renderSortIcon(column) {
+    const { sortBy, sortDirection } = this.state;
+    if (sortBy === column) {
+      if (sortDirection === 'DESC') {
+        return <i className="fa fa-sort-up" aria-hidden="true"></i>;
+      } else {
+        return <i className="fa fa-sort-down" aria-hidden="true"></i>;
+      }
+    }
+    return null;
   }
 
   render() {
@@ -55,13 +95,13 @@ class Expenses extends Component {
         <table>
           <thead>
             <tr className='text-[#00df9a] md:text-xl sm:text-sm text-sm font-bold'>
-              <th>Card</th>
-              <th>Transaction Date</th>
-              <th>Reference Number</th>
-              <th>Description</th>
-              <th>Category</th>
-              <th>Credits</th>
-              <th>Charges</th>
+              <th onClick={() => this.handleSort('card')}>Card Last 4</th>
+              <th onClick={() => this.handleSort('transDate')}>Transaction Date {this.renderSortIcon('transDate')}</th>
+              <th onClick={() => this.handleSort('referenceNumber')}>Reference Number {this.renderSortIcon('referenceNumber')}</th>
+              <th onClick={() => this.handleSort('description')}>Description {this.renderSortIcon('description')}</th>
+              <th onClick={() => this.handleSort('category')}>Category {this.renderSortIcon('category')}</th>
+              <th onClick={() => this.handleSort('credits')}>Credits {this.renderSortIcon('credits')}</th>
+              <th onClick={() => this.handleSort('charges')}>Charges {this.renderSortIcon('charges')}</th>
             </tr>
           </thead>
           <tbody className='text-white  md:text-xl sm:text-sm text-sm pl-2'>
@@ -71,7 +111,7 @@ class Expenses extends Component {
                 <td className= 'border border-gray-600'>{new Date(expense.transDate).toLocaleDateString()}</td>
                 <td className= 'border border-gray-600'>{expense.referenceNumber}</td>
                 <td className= 'border border-gray-600'>{expense.description}</td>
-                <td className= 'border border-gray-600'>{expense?.category?.name ?? 'No Category'}</td>
+                <td className= 'border border-gray-600'>{expense.category?.name ?? ''}</td>
                 <td className= 'border border-gray-600'>{expense.credits}</td>
                 <td className= 'border border-gray-600'>{expense.charges}</td>
               </tr>
